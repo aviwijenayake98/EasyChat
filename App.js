@@ -1,13 +1,43 @@
-import { StatusBar } from 'expo-status-bar';
+import 'react-native-gesture-handler';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import LoginScreen from './screen/LoginScreen';
+import RegisterScreen from './screen/RegisterScreen';
+import HomeScreen from './screen/HomeScreen';
+import AddChatScreen from './screen/AddChatScreen';
+import ChatScreen from './screen/ChatScreen';
+
+
+const Stack = createStackNavigator();
+
+const globalScreenOptions = {
+  headerStyle: {backgroundColor: "#43E68D"},
+  headerTitleStyle: {color: "white" ,fontWeight: 'bold'},
+  headerTintColor: "white",
+  headerTitleAlign: "center",
+  
+};
+
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer> 
+     
+      <Stack.Navigator 
+      // initialRouteName="Home"
+      screenOptions={globalScreenOptions}
+      >
+       <Stack.Screen name='Login' component={LoginScreen}/>
+       <Stack.Screen name='Register' component={RegisterScreen}/>
+       <Stack.Screen name='Home' component={HomeScreen}/>
+       <Stack.Screen name='AddChat' component={AddChatScreen}/>
+       <Stack.Screen name='Chat' component={ChatScreen}/>
+      </Stack.Navigator>
+     
+    </NavigationContainer>
+  
   );
 }
 
