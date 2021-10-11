@@ -3,12 +3,12 @@ import 'firebase/firestore';
 import 'firebase/auth';
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDA8pJE4ozK8GkGLnpwsuiqiN6daITI-LM",
-    authDomain: "easychat-ce427.firebaseapp.com",
-    projectId: "easychat-ce427",
-    storageBucket: "easychat-ce427.appspot.com",
-    messagingSenderId: "97151190398",
-    appId: "1:97151190398:web:5b866d6f32fb0ae8619f2f"
+    apiKey: "AIzaSyAX518dcdoClkCBWwGn7fIsI5UaoW58VeQ",
+    authDomain: "easychat-5b107.firebaseapp.com",
+    projectId: "easychat-5b107",
+    storageBucket: "easychat-5b107.appspot.com",
+    messagingSenderId: "1083144661496",
+    appId: "1:1083144661496:web:bc1b2b93cf6262e49dce0d"
   };
 let app;
 
