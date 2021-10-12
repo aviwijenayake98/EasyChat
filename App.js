@@ -8,7 +8,8 @@ import RegisterScreen from './screen/RegisterScreen';
 import HomeScreen from './screen/HomeScreen';
 import AddChatScreen from './screen/AddChatScreen';
 import ChatScreen from './screen/ChatScreen';
-
+import Cam from './components/Cam';
+import Camm from './components/Camera';
 
 const Stack = createStackNavigator();
 
@@ -34,6 +35,9 @@ export default function App() {
        <Stack.Screen name='Home' component={HomeScreen}/>
        <Stack.Screen name='AddChat' component={AddChatScreen}/>
        <Stack.Screen name='Chat' component={ChatScreen}/>
+       <Stack.Screen name='Cam' component={Cam}/>
+       <Stack.Screen name='Camm' component={Camm}/>
+
       </Stack.Navigator>
      
     </NavigationContainer>

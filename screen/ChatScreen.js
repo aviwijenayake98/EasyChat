@@ -18,10 +18,19 @@ import { AntDesign, FontAwesome, Ionicons } from "@expo/vector-icons";
 import { useState } from "react";
 import * as firebase from "firebase";
 import { db, auth } from "../firebase";
+import { Button, Input, Image } from 'react-native-elements'
+
+
 
 const ChatScreen = ({ navigation, route }) => {
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState([]);
+
+  const Camera = () => {
+
+    navigation.replace('Camm');
+    
+ };
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -71,7 +80,18 @@ const ChatScreen = ({ navigation, route }) => {
             marginRight: 20,
           }}
         >
-          <TouchableOpacity>
+          {/* ____________________________________________________Avinash BSL____________________________________________ */}
+          <TouchableOpacity onPress={Camera} style={styles.BSLStyle}>
+            <FontAwesome name="video-camera" size={23} color="white" />
+          </TouchableOpacity>
+
+          {/* ____________________________________________________Pamod Makton____________________________________________ */}
+          <TouchableOpacity onPress={Camera} style={styles.MaktonStyle}>
+            <FontAwesome name="video-camera" size={23} color="white" />
+          </TouchableOpacity>
+
+          {/* ____________________________________________________Sakura Lip Reading____________________________________________ */}
+          <TouchableOpacity onPress={Camera} style={styles.LipStyle}>
             <FontAwesome name="video-camera" size={23} color="white" />
           </TouchableOpacity>
 
@@ -250,4 +270,13 @@ const styles = StyleSheet.create({
     color: "gray",
     borderRadius: 30,
   },
+  BSLStyle:{
+    right:90
+  },
+  MaktonStyle:{
+    right:60
+  },
+  LipStyle:{
+    right:30
+  }
 });

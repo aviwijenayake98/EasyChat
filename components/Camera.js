@@ -9,7 +9,10 @@ export default function camera() {
   const [camera, setcamera ] = useState(null);
   const [image, setimage ] = useState(null);
   const [type, setType] = useState(Camera.Constants.Type.back);
+
+
 console.log(image)
+
   useEffect(() => {
     (async () => {
       const cameraStatus = await Camera.requestPermissionsAsync();
@@ -27,6 +30,14 @@ if(camera){
   setimage(data.uri);
 }
   }
+  const DeletePhoto = async () => {
+    if(camera){
+      
+      setimage(null);
+    }
+      }
+
+     
 
   const pickImage = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
@@ -36,11 +47,13 @@ if(camera){
       quality: 1,
     });
 
-    console.log(result.uri);
+    
 
     if (result.cancelled) {
       setImage(result.uri);
+     
     }
+  
   };
 
   if (hasCamerPermission === null || hasGalleryPermission === false) {
@@ -66,10 +79,12 @@ if(camera){
         );
       }}>
       <Text style={styles.text}> Flip </Text>
-    </Button>
+    </Button> 
     <Button title="take picture" onPress={()=> takePicture()}/>
+    <Button title="Delete" onPress={() =>DeletePhoto()}/>
     <Button title="Pick Image From Gallery" onPress={()=> pickImage()}/>
     {image && <Image source={{uri: image}} style={{flex: 1.50}}/>}
+    
     </View>
   );
 }
