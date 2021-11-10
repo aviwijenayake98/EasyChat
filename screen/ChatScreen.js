@@ -15,7 +15,7 @@ import {
 } from "react-native";
 import { Avatar } from "react-native-elements/dist/avatar/Avatar";
 import { AntDesign, FontAwesome, Ionicons } from "@expo/vector-icons";
-import { useState } from "react";
+import { useState} from "react";
 import * as firebase from "firebase";
 import { db, auth } from "../firebase";
 import { Button, Input, Image } from 'react-native-elements'
@@ -28,7 +28,7 @@ const ChatScreen = ({ navigation, route }) => {
 
   const Camera = () => {
 
-    navigation.replace('Camm');
+    navigation.replace('Cam');
     
  };
 
