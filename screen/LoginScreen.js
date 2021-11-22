@@ -1,7 +1,10 @@
+
+
+
 import { StatusBar } from 'expo-status-bar'
 import React from 'react'
 import { useEffect, useState } from 'react'
-import { KeyboardAvoidingView, StyleSheet, Text, View } from 'react-native'
+import { KeyboardAvoidingView, StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import { Button, Input, Image } from 'react-native-elements'
 import { auth } from '../firebase'
 
@@ -31,6 +34,8 @@ const LoginScreen = ({ navigation }) => {
         <KeyboardAvoidingView behavior="padding" style={styles.container}>
             <StatusBar style='light' />
 
+            <Text style={styles.LoginTitle}>Easy Chat</Text>
+
             <Image source={{
                 uri: 'https://cdn5.f-cdn.com/contestentries/892698/21718995/5833c0af64c61_thumb900.jpg'
             }}
@@ -59,13 +64,10 @@ const LoginScreen = ({ navigation }) => {
                 titleStyle={{ color: "#fff" }}
             />
 
-            <Button
-                containerStyle={styles.button}
-                onPress={() => navigation.navigate("Register")}
-                type=""
-                title="Register"
-                titleStyle={{ color: "#fff" }}
-            />
+            <TouchableOpacity onPress={() => navigation.navigate("Register")}>
+            <Text  style={styles.signUpLink}>Need a Account ? Sign Up</Text>
+            </TouchableOpacity>
+      
 
             <View style={{ height: 50 }} />
 
@@ -86,11 +88,30 @@ const styles = StyleSheet.create({
         width: 300,
     },
     button: {
-        width: 200,
+        width: 300,
         marginTop: 10,
-        backgroundColor: "#43E68D",
+        backgroundColor: "#E76565",
         borderRadius: 5,
 
     },
+    LoginTitle:{
+        height: 66,
+        width: 308,
+        fontSize:46,
+        fontWeight:'400',
+        left:55,
+        color: '#227721',
+        bottom:10,
+
+    },
+    signUpLink:{
+        fontSize:18,
+        lineHeight:22,
+        width:250,
+        color:'#333FA7',
+        left:20,
+        top:30
+    }
+
 
 })

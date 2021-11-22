@@ -1,14 +1,14 @@
 import { StatusBar } from 'expo-status-bar'
 import React from 'react'
 import { useLayoutEffect, useState } from 'react'
-import { KeyboardAvoidingView, StyleSheet, View } from 'react-native'
-import { Button, Input, Text } from 'react-native-elements'
+import { KeyboardAvoidingView, StyleSheet, View, TouchableOpacity } from 'react-native'
+import { Button, Input, Text , Image} from 'react-native-elements'
 import { auth } from '../firebase'
 
 
 const RegisterScreen = ({ navigation }) => {
 
-    const [name, setName] = useState("")
+    const [Usename, setUsename] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [imageUrl, setImageUrl] = useState("")
@@ -38,17 +38,22 @@ const RegisterScreen = ({ navigation }) => {
         <KeyboardAvoidingView behavior='padding' style={styles.container}>
             <StatusBar style="light" />
 
-            <Text h4 style={{ marginBottom: 50 }}>
-                Create a EasyChat account
-            </Text>
+            <Text style={styles.LoginTitle}>Easy Chat</Text>
+
+      
+            <Image source={{
+                uri: 'https://cdn5.f-cdn.com/contestentries/892698/21718995/5833c0af64c61_thumb900.jpg'
+            }}
+                style={{ width: 200, height: 200 }} />
+            
             <View style={styles.inputContainer}>
 
                 <Input
-                    placeholder="Full Name"
+                    placeholder="UserName"
                     autoFocus
                     type='text'
-                    value={name}
-                    onChangeText={(text) => setName(text)}
+                    value={Usename}
+                    onChangeText={(text) => setUsename(text)}
                 />
 
                 <Input
@@ -66,13 +71,7 @@ const RegisterScreen = ({ navigation }) => {
                     onChangeText={(text) => setPassword(text)}
                 />
 
-                <Input
-                    placeholder="Profile Picture URL (Optional)"
-                    type='text'
-                    value={imageUrl}
-                    onChangeText={(text) => setImageUrl(text)}
-                    onSubmitEditing={register}
-                />
+
             </View>
 
             <Button
@@ -83,6 +82,9 @@ const RegisterScreen = ({ navigation }) => {
                 type="clear"
                 titleStyle={{ color: "#fff" }}
             />
+            <TouchableOpacity  onPress={() => navigation.navigate("Login")}>
+            <Text  style={styles.LoginLink}>Already have an account ? Sign In</Text>
+            </TouchableOpacity>
 
             <View style={{ height: 100 }} />
 
@@ -104,13 +106,29 @@ const styles = StyleSheet.create({
         width: 300,
     },
     button: {
-        width: 200,
+        width: 300,
         marginTop: 10,
-        backgroundColor: "#43E68D",
+        backgroundColor: "#E76565",
         borderRadius: 5,
 
-
-
     },
+    LoginTitle:{
+        height: 146,
+        width: 308,
+        fontSize:46,
+        fontWeight:'400',
+        left:55,
+        color: '#227721',
+        top:80
+    },
+
+    LoginLink:{
+        fontSize:18,
+        lineHeight:22,
+        width:280,
+        color:'#333FA7',
+        left:10,
+        top:20
+    }
 
 })

@@ -6,7 +6,6 @@ import {
   Text,
   TouchableOpacity,
   SafeAreaView,
-  Image
 } from "react-native";
 import { Camera } from "expo-camera";
 import { Video } from "expo-av";
